@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+        <input type="number" id="marks">
+        <button id="Submit">Submit</button>
+    </form>
+    <p id="text"></p>
+</body>
+<script>
+    const form = document.getElementsByName("form")
+    const text = document.getElementById("text")
+    document.addEventListener('submit',(e)=>{
+        e.preventDefault();
+    const mrk = document.getElementById("marks").value
+        if(mrk >=80){
+            text.innerText = "Grade: A"
+        }
+        else if (mrk >=50 && mrk <=80){
+            text.innerText = "Grade: B"
+        }
+        else{
+            text.innerText = "Grade C"
+        }
+    })
+</script>
+</html>

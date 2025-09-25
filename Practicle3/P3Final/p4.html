@@ -1,0 +1,13 @@
+<form id="myForm">
+<input type="number" name="marks" />
+<button type="submit">Submit</button>
+</form>
+
+<script>
+document.getElementById("myForm").addEventListener(
+"submit", function(e) {
+e.preventDefault(); // Prevent reload
+let marks = this.marks.value;
+alert("Marks entered: " + marks);
+})
+</script>

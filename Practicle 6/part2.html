@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Document</title>
+</head>
+<body>
+<script>
+  let str = prompt("Enter a string to test regex patterns:");
+  document.write("Input: " + str + "<br>");
+  document.write("^ : " + /^Hello/.test(str) + "<br>");
+  document.write("$ : " + /world$/.test(str) + "<br>");
+  document.write(". : " + /h.t/.test(str) + "<br>");
+  document.write("* : " + /go*d/.test(str) + "<br>");
+  document.write("+ : " + /go+d/.test(str) + "<br>");
+  document.write("? : " + /colou?r/.test(str) + "<br>");
+  document.write("[abc] : " + /gr[ae]y/.test(str) + "<br>");
+  document.write("[^abc] : " + /[^0-9]/.test(str) + "<br>");
+  document.write("{n} : " + /\d{3}/.test(str) + "<br>");
+  document.write("{n,} : " + /\d{2,}/.test(str) + "<br>");
+  document.write("{n,m} : " + /\d{2,4}/.test(str) + "<br>");
+  document.write("\\d : " + /\d/.test(str) + "<br>");
+  document.write("\\w : " + /\w/.test(str) + "<br>");
+  document.write("\\s : " + /\s/.test(str) + "<br>");
+  document.write("| : " + /(cat|dog)/.test(str) + "<br>");
+</script>
+</body>
+</html>

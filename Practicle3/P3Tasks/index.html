@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Task 6</h2>
+    <input type="number" id="health" placeholder="Enter player health">
+    <input type="number" id="reputation" placeholder="Enter player reputation">
+    <input type="text" id="inventory" placeholder="Enter items (e.g., sword,ring,water)"><br><br>
+    <button onclick="checkNPCBehavior()">Check NPC Reaction</button>
+</body>
+<!-- Task 1  -->
+<!-- <script>
+const num = prompt("Enter a number: ")
+if(num >0){
+    alert(num+" is positive number.")
+}
+else if(num < 0){
+    alert(num+" is negative number.")
+}
+else{
+    alert("You entered zero")
+}
+</script> -->
+<!-- Task 2 -->
+<!-- <script>
+    let day = prompt("Enter a day of the week: ");
+switch (day) {
+case "Monday":
+alert("Start of the week!");
+break;
+case "Friday":
+alert("Weekend starts soon!");
+break;
+default:
+alert("Midweek day.");
+}
+</script> -->
+<!-- Task 3 -->
+<!-- <script>
+    const color = prompt("Enter a color: ");
+    switch (color) {
+        case "red":
+            alert("STOP!!");
+            break;
+
+        case "green":
+            alert("GO!!");
+            break;
+        case "yellow":
+            alert("WAIT!!");
+            break
+        default:
+            alert(".");
+    }
+</script> -->
+<!-- Task 4 -->
+ <!-- <script>
+    var balance = 1000; 
+    const transaction_type = prompt("Enter transaction type (withdraw/deposit/balance/default): ");
+    switch(transaction_type){
+        case "withdraw":
+            let withdraw_amount = prompt("Enter amount to withdraw: ");
+            withdraw_amount = parseFloat(withdraw_amount);
+            if(withdraw_amount <= balance){
+                balance -= withdraw_amount;
+                alert("Withdrawal successful! New balance: " + balance);
+            } else {
+                alert("Insufficient funds for withdrawal.");
+            }
+            break;
+        case "deposit":
+            let deposit_amount = prompt("Enter amount to deposit: ");
+            deposit_amount = parseFloat(deposit_amount);
+            balance += deposit_amount;
+            alert("Deposit successful! New balance: " + balance);
+            break;
+        case "balance":
+            alert("Your current balance is: " + balance);
+            break;
+        default:
+            alert("Invalid transaction type.");
+            break;
+    }
+ </script> -->
+<!-- Task 5 -->
+<!-- <script>
+const sentiment_score = prompt("Enter a sentiment score between -10 and 10:");
+const score = parseFloat(sentiment_score);
+const keyword = prompt("Enter a context keyword:");
+if ( score < -10 || score > 10) {
+    alert("Invalid sentiment score enter a number between -10 and 10");
+} else if (score === 6 && keyword === "tired") {
+    alert("User is not clearly happy or sad");
+} else if (score === -3 && keyword === "confused") {
+    alert("User might need guidance");
+} else if (score === 0 && keyword.trim() === "") {
+    alert("Bot will ask more questions");
+} else if (score > 5 && keyword === "excited") {
+    alert("User is likely happy and excited");
+} else if (score < 0 && keyword === "sad") {
+    alert("User might need support");
+} else if (keyword.trim() === "") {
+    if (score > 0) {
+        alert("User is in positive mood");
+    } else if (score < 0) {
+        alert("User is in negative moode");
+    } else {
+        alert("User is in neutral mood");
+    }
+} else {
+    alert("Bot is unsure. Will ask clarifying questions.");
+}
+</script> -->
+<!-- Task 6 -->
+ <script>
+    function checkNPCBehavior() {
+        let health = parseInt(document.getElementById("health").value);
+        let reputation = parseInt(document.getElementById("reputation").value);
+        let inventoryInput = document.getElementById("inventory").value.toLowerCase();
+        let inventory = inventoryInput.split(',').map(item => item.trim());
+        let player_attacked = true;
+
+        if (health < 40 && reputation > 30) {
+          alert("NPC will give player a health kit.");
+        } else if (health < 40 && reputation < 0) {
+          alert("NPC will not help the player.");
+        } else if (health < 40 && reputation > 0) {
+          alert("NPC will give food.");
+        } else if (reputation < -45 && inventory.includes("magic ring")) {
+          alert("NPC will bow down and walk quietly in fear.");
+        } else if (reputation > 30 && inventory.includes("magic ring")) {
+          alert("NPC will praise the player.");
+        } else if (health === 90 && player_attacked === true) {
+          alert("NPC will attack the enemy.");
+        } else {
+          alert("NPC does nothing special.");
+        }
+      }
+ </script>
+</html>

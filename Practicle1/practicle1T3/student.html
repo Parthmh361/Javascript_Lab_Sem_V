@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Student Portfolio</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f7fa;
+      padding: 30px;
+      text-align: center;
+    }
+    h1 {
+      color: #333;
+    }
+    input[type="file"] {
+      margin: 20px auto;
+    }
+    #profile {
+      margin-top: 30px;
+      background: #e0f7fa;
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 600px;
+      margin-inline: auto;
+    }
+    #profile img {
+      max-width: 150px;
+      border-radius: 10px;
+      margin-bottom: 10px;
+    }
+    button {
+      padding: 10px 20px;
+      background: #007acc;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      margin-top: 20px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>Upload Your Profile Image</h1>
+  <input type="file" id="image" accept="image/*" />
+  <div id="profile"></div>
+
+  <script type="module" src="student-info.js"></script>
+</body>
+</html>

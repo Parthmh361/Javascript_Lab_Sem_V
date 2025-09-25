@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Document</title>
+</head>
+<body>
+<script>
+  let mobile = "9876543210";
+  let mobileRegex = /^[6-9]\d{9}$/;
+  document.write("Task 1<br>");
+  document.write("Mobile: " + mobile + " = " + mobileRegex.test(mobile) + "<br><br>");
+  let textWithDates = "Today date is 12/09/2025 and tomorrow will be 13/09/2025.";
+  let dateRegex = /\d{2}\/\d{2}\/\d{4}/g;
+  document.write("Task 2<br>");
+  document.write("Text: " + textWithDates + "<br>");
+  document.write("Dates: " + textWithDates.match(dateRegex) + "<br><br>");
+  let pass1 = "StrongPass18889!";
+  let pass2 = "weakp";
+  let passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+  document.write("Task 3<br>");
+  document.write(pass1 + " =" + passwordRegex.test(pass1) + "<br>");
+  document.write(pass2 + " = " + passwordRegex.test(pass2) + "<br><br>");
+  let dupText = "This is is a test test";
+  let dupRegex = /\b(\w+)\s+\1\b/g;
+  let dupMatches = dupText.match(dupRegex);
+  document.write("Task 4<br>");
+  document.write("Text: " + dupText + "<br>");
+  document.write("Duplicates: " + dupMatches + "<br><br>");
+  let tweet = "#THE NEPAL RIOTS ARE NOT GOOD FOR THE NATION!";
+  let hashtags = tweet.match(/#[A-Za-z0-9_]+/g);
+  document.write("Task 5<br>");
+  document.write("Tweet: " + tweet + "<br>");
+  document.write("Hashtags: " + hashtags + "<br>");
+</script>
+</body>
+</html>

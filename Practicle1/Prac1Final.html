@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SIT Nagpur - CS Department</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f3f3f3;
+      text-align: center;
+      padding: 50px;
+    }
+    a {
+      display: inline-block;
+      margin-top: 20px;
+      font-size: 18px;
+      text-decoration: none;
+      color: #007bff;
+    }
+  </style>
+  <!-- Internal JavaScript -->
+  <script>
+    function showWelcome() {
+      document.getElementById("welcome").innerText = "Welcome to SIT Nagpur - Computer Science Department!";
+    }
+  </script>
+</head>
+<body onload="showWelcome()">
+  <h1 id="welcome"></h1>
+  <a href="student.html">Go to Student Info Page</a>
+</body>
+</html>

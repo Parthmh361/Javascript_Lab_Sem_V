@@ -1,0 +1,17 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #fefefe;
+  padding: 30px;
+  color: #333;
+}
+
+h1 {
+  color: #2c3e50;
+}
+
+#studentDetails {
+  background: #ecf0f1;
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 20px;
+}

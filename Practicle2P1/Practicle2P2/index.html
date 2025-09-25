@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>document</title>
+</head>
+<body>
+</body>
+<!-- TASK 1: -->
+<!-- <script>
+    var student = {
+        name: "Parth",
+        rollNumber: 104,
+        subjects: {
+            Math: 85,
+            Science: 90,
+            English: 100,
+            History: 88,
+            Art: 92
+        }
+    }
+    const { name, rollNumber, subjects } = student;
+    document.write(`Report Card for ${name} (Roll No: ${rollNumber})`);
+    document.writeln("<hr>");
+    const { Math, Science, English, History, Art } = subjects;
+    document.write(`Math: ${Math},`);
+    document.write(`Science: ${Science},`);
+    document.write(`English: ${English},`);
+    document.write(`History: ${History},`);
+    document.write(`Art: ${Art} <br>`);
+    const total = Math+Science+English+History+Art
+    document.write(`Total Marks: ${total} <br>`)
+    document.write(`Precentage: ${total/5}`)
+</script> -->
+<!-- TASK 2: -->
+<!-- <script>
+    const generateGreeting =(name="Parth",role="Student",location="Savner") =>{
+        alert(`Hello ${name}! Your role is ${role} and you are currently in ${location}`)
+    }
+    generateGreeting("Parth","Student_not_D","Nagpur");
+</script> -->
+<!-- TASK 3: -->
+<!-- <script>
+    let number = 10;
+    let array = [1,2,3]
+    let string = "string"
+    let x = true
+    const obj = {name:"Parth", roll:104}
+    const fun = ()=>{}
+    var und = undefined
+    function analyzeData(variable){
+           if (variable.constructor === Number) {
+            document.write(`Type of ${variable} is Number`);
+        }
+         else if (variable.constructor === String) {
+            document.write(`Type of ${variable} is String`);
+        }
+         else if (variable.constructor === Array) {
+            document.write(`Type of ${variable} is Array`);
+        } 
+        else if (variable.constructor === Object) {
+            document.write(`Type of ${JSON.stringify(variable)} is Object`);
+        } 
+        else if (variable.constructor === Boolean) {
+            document.write(`Type of ${variable} is Boolean`);
+        }
+         else if (variable.constructor === Function) {
+            document.write(`Type of ${variable} is Function`);
+        } 
+        else if (variable === undefined) {
+            document.write(`Type of ${variable} is Function`);
+        }
+        else {
+            document.write(`Unknown type`);
+        }
+    }
+    analyzeData(10)
+</script> -->
+<!-- TASK 4: -->
+<script>
+    const input1 = prompt("Enter first set of colors (comma-separated):", "red,green");
+    const input2 = prompt("Enter second set of colors (comma-separated):", "blue,yellow");
+    const colors1 = input1.split(',').map(color => color.trim());
+    const colors2 = input2.split(',').map(color => color.trim());
+    const palette = [...colors1, ...colors2];
+    const [firstColor, ...rest] = palette;
+    const [lastColor, ...others] = rest.reverse();  // reverse to get last
+    const middleColors = others.reverse();          // reverse back to keep order
+    const message = `Main colors: ${firstColor.charAt(0).toUpperCase() + firstColor.slice(1)} and ${lastColor.charAt(0).toUpperCase() + lastColor.slice(1)}. ` +
+                    `Others in the palette: ${middleColors.map(c => c.charAt(0).toUpperCase() + c.slice(1)).join(', ')}.`;
+    document.write(`<h3>${message}</h3>`);
+</script>
+</html>

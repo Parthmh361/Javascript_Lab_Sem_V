@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My First Webpage</title>
+  <style>
+    .btn {
+      padding: 10px 20px;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .btn:hover {
+      background-color: #218838;
+    }
+  </style>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Website HEader</h1>
+  </header>
+  <nav>
+    <a href="#section1">Go to About</a> |
+    <a href="#section2">See List</a> |
+    <a href="#section3">Media</a>
+  </nav>
+  <section id="section1">
+    <article>
+      <h2>About Me</h2>
+      <p id="intro">Hello! I'm learning <span class="highlight">HTML & CSS</span> to become a web developer.</p>
+    </article>
+  </section>
+  <section id="section2">
+    <h2>My Favorite Things</h2>
+    <h3>Ordered List</h3>
+    <ol>
+      <li>Learning to code</li>
+      <li>Reading books</li>
+      <li>Playing chess</li>
+    </ol>
+    <h3>Unordered List</h3>
+    <ul>
+      <li>Pizza</li>
+      <li>Coffee</li>
+      <li>Music</li>
+    </ul>
+    <p>Visit <a href="https://www.w3schools.com" target="_blank">W3Schools</a> to learn HTML.</p>
+    <p><a href="#top">Back to top</a></p>
+  </section>
+  <section id="section3">
+    <h2>Media Section</h2>
+    <img src="https://play-lh.googleusercontent.com/IkcyuPcrQlDsv62dwGqteL_0K_Rt2BUTXfV3_vR4VmAGo-WSCfT2FgHdCBUsMw3TPGU" 
+    width="300">
+    <br><br>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/dD2EISBDjWM"
+      title="YouTube video player" frameborder="0"
+      allowfullscreen></iframe>
+  </section>
+  <section>
+    <h2>My Weekly Schedule</h2>
+    <table>
+      <caption>Weekly Activities</caption>
+      <tr>
+        <th>Day</th>
+        <th>Activity</th>
+      </tr>
+      <tr>
+        <td>Monday</td>
+        <td>Practice HTML</td>
+      </tr>
+      <tr>
+        <td>Tuesday</td>
+        <td>Learn CSS</td>
+      </tr>
+    </table>
+  </section>
+  <section style="text-align: center; margin-top: 20px;">
+    <button class="btn">Click Me!</button>
+  </section>
+  <footer style="text-align: center; margin-top: 30px;">
+    <p>Website Footer</p>
+  </footer>
+</body>
+</html>

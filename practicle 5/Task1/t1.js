@@ -1,0 +1,10 @@
+let ages = [21,22,23,22,25];
+console.log("Student ages are: " + ages);
+ages.push(21);
+console.log("After adding new age: " + ages);
+ages.pop();
+console.log("After removing last age: " + ages);
+doubled_ages = ages.map((age)=> age * 2);
+console.log("Doubled ages: " + doubled_ages);
+cubed_ages = ages.map((age)=> age * age * age);
+console.log("Cubed ages: " + cubed_ages);

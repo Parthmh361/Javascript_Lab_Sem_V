@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Fair Grader</title>
+  <style>
+    .card {
+      border: 1px solid black;
+      padding: 10px;
+      margin: 10px;
+    }
+    .top {
+      box-shadow: 0 0 10px 5px green;
+    }
+    .anim {
+      animation: ani 1s ease;
+    }
+    @keyframes ani {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+<h2>Fair Grader</h2>
+
+<form id="f1">
+  <div id="d1"></div>
+  <button type="submit">Go</button>
+</form>
+
+<div id="out"></div>
+
+<footer>
+  <p>Made by Parth Choudhari | Time: <span id="tm"></span></p>
+</footer>
+
+<script>
+  let sub = ['Compiler Construction', 'JavaScript', 'Data Compression', 'CN'];
+  let s = [
+    { n: "Parth Choudhari", r: 1 },
+    { n: "Rohit Kindarle", r: 2 },
+    { n: "Aary Mardikar", r: 3 },
+    { n: "Rahul Malani", r: 4 }
+  ];
+
+  let d = document.getElementById("d1");
+
+  s.forEach((z, i) => {
+    let sid = "s3_" + i;
+    d.innerHTML += `
+      <div class="card" id="c_${i}">
+        <h4>Student ${i + 1}</h4>
+        Name: <input type="text" value="${z.n}" readonly><br>
+        Roll: <input type="number" value="${z.r}" readonly><br>
+        Sub1 (slider): <input type="range" id="a${i}" min="0" max="100" value="50"><br>
+        Sub2: <input type="number" id="b${i}" min="0" max="100"><br>
+        Sub3: <select id="${sid}">
+          ${sub.map(x => `<option value="${Math.floor(Math.random() * 101)}">${x}</option>`).join("")}
+        </select><br>
+      </div>
+    `;
+  });
+
+  document.getElementById("f1").addEventListener("submit", function(e) {
+    e.preventDefault();
+    let o = document.getElementById("out");
+    o.innerHTML = "";
+    let m = -1;
+    let t = -1;
+
+    s.forEach((z, i) => {
+      let x1 = parseInt(document.getElementById("a" + i).value);
+      let y2 = parseInt(document.getElementById("b" + i).value);
+      let z3 = parseInt(document.getElementById("s3_" + i).value);
+
+      if ([x1, y2, z3].some(q => q < 0 || q > 100 || isNaN(q))) {
+        alert("Wrong input for student " + (i + 1));
+        return;
+      }
+
+      let a = Math.round((x1 + y2 + z3) / 3);
+      let g = "";
+      let r = "";
+
+      if (a >= 90) g = "A";
+      else if (a >= 75) g = "B";
+      else if (a >= 50) g = "C";
+      else g = "F";
+
+      switch (true) {
+        case a >= 90: r = "Excellent"; break;
+        case a >= 75: r = "Good"; break;
+        case a >= 50: r = "Needs Improvement"; break;
+        default: r = "Fail";
+      }
+
+      if (a > m) {
+        m = a;
+        t = i;
+      }
+
+      o.innerHTML += `
+        <div class="card anim" id="r${i}">
+          <h4>${z.n} (Roll: ${z.r})</h4>
+          Marks Avg: ${a}<br>
+          Grade: ${g}<br>
+          Remark: ${r}
+        </div>
+      `;
+    });
+
+    for (let j = 0; j < s.length; j++) {
+      document.getElementById("c_" + j).classList.remove("top");
+    }
+    if (t >= 0) {
+      document.getElementById("c_" + t).classList.add("top");
+    }
+  });
+
+  document.getElementById("tm").textContent = new Date().toLocaleString();
+</script>
+
+</body>
+</html>

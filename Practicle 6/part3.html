@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Document</title>
+</head>
+<body>
+<script>
+  let str = prompt();
+  let regex = /parth/gi;
+  document.write("Input: " + str + "<br><br>");
+  document.write("test() : " + regex.test(str) + "<br>");
+  let execRes = regex.exec(str);
+  document.write("exec() : " + (execRes ? execRes[0] : null) + "<br>");
+  let matchRes = str.match(regex);
+  document.write("match() : " + matchRes + "<br>");
+  let all = str.matchAll(regex);
+  document.write("matchAll() : ");
+  for (let m of all) {
+    document.write(m[0] + " ");
+  }
+  document.write("<br>");
+  document.write("replace() : " + str.replace(regex, "RPLACED TEXT") + "<br>");
+  document.write("search() : " + str.search(/coding/) + "<br>");
+  document.write("split() : " + str.split(/\s+/) + "<br>");
+</script>
+</body>
+</html>

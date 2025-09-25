@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <input type="text" id="itemName" placeholder="Enter item name.">
+        <input type="number" id="quantity" placeholder="Enter quantity">
+        <input type="number" id="itemPrice" placeholder="Enter Item price">
+        <button onclick="ans(event)">Submit</button>
+    </form>
+    <div id="ans">
+
+    </div>
+</body>
+<script>
+  const name = document.getElementById("itemName")
+    const quant =  parseInt(document.getElementById("quantity").value) || 1
+    const price = parseFloat(document.getElementById("itemPrice").value) || 1
+    const ans = (e) => {
+        e.preventDefault()
+        document.getElementById("ans").innerHTML = `<p>You ordered ${quant} ${name.value} at a price of ${price} each. Total: ${quant * price}</p>`
+    }
+</script>
+</html>

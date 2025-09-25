@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>SIT Nagpur - CSE Department</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f7fa;
+      padding: 40px;
+      text-align: center;
+    }
+    .logo {
+      max-width: 120px;
+      margin-bottom: 20px;
+    }
+    h1 {
+      color: #2c3e50;
+    }
+    p {
+      font-size: 18px;
+      color: #444;
+    }
+    .link-button {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 12px 24px;
+      background: #ee0000;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 8px;
+    }
+    #welcomeMessage {
+      margin-top: 15px;
+      font-size: 20px;
+      font-weight: bold;
+      color: #dd1c0b;
+    }
+  </style>
+</head>
+<body>
+  <img src="https://pbs.twimg.com/profile_images/1817806724989943808/z9Ab3Umh_400x400.jpg" alt="College Logo" class="logo" />
+
+  <h1 style="color: #dd1c0b;">SIT Nagpur</h1>
+  <h2>Department of Computer Science & Engineering</h2>
+
+  <div id="welcomeMessage"></div>
+
+  <a href="student.html" class="link-button">Go to Student Page</a>
+
+  <!-- Internal JavaScript -->
+  <script>
+    document.getElementById("welcomeMessage").textContent = "Welcome to the CSE Department Portal!";
+  </script>
+</body>
+</html>

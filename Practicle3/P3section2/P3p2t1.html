@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Documnet</title>
+</head>
+<body>
+
+  <h1>JavaScript Tasks</h1>
+
+  <button onclick="task1()">Task 1: Even Numbers</button>
+  <div id="out1" class="output"></div>
+
+  <button onclick="task2()">Task 2: Longest String</button>
+  <div id="out2" class="output"></div>
+
+  <button onclick="task3()">Task 3: Odd Numbers to n</button>
+  <div id="out3" class="output"></div>
+
+  <button onclick="task4()">Task 4: Fibonacci up to n</button>
+  <div id="out4" class="output"></div>
+
+  <button onclick="task5()">Task 5: Stop at 0</button>
+  <div id="out5" class="output"></div>
+
+  <button onclick="task6()">Task 6: Guess 1–100</button>
+  <div id="out6" class="output"></div>
+
+  <button onclick="task7()">Task 7: Until 'exit'</button>
+  <div id="out7" class="output"></div>
+
+  <button onclick="task8()">Task 8: Reverse Array</button>
+  <div id="out8" class="output"></div>
+
+  <button onclick="task9()">Task 9: Multiplication Table</button>
+  <div id="out9" class="output"></div>
+
+  <button onclick="task10()">Task 10: Factorials</button>
+  <div id="out10" class="output"></div>
+
+  <button onclick="task11()">Task 11: Guess 1–10</button>
+  <div id="out11" class="output"></div>
+
+  <script>
+    function task1() {
+      const nums = [1, 4, 7, 10, 13, 16, 19];
+      let result = nums.filter(n => n % 2 === 0).join(" ");
+
+      document.getElementById("out1").innerText = "Array: "+nums+" Even numbers: " + result;
+    }
+
+    function task2() {
+      const words = ["apple", "banana", "grapefruit", "kiwi"];
+      let longest = words.reduce((a, b) => a.length > b.length ? a : b);
+      document.getElementById("out2").innerText = "Array: "+words+" Longest word: " + longest;
+    }
+
+    function task3() {
+      let n = parseInt(prompt("Enter a number:"));
+      let result = "";
+      let i = 1;
+      while (i <= n) {
+        if (i % 2 !== 0) result += i + " ";
+        i++;
+      }
+      document.getElementById("out3").innerText = "Odd numbers: " + result;
+    }
+
+    function task4() {
+      let n = parseInt(prompt("Enter limit for Fibonacci:"));
+      let a = 0, b = 1, result = "0 1 ";
+      while (a + b <= n) {
+        let c = a + b;
+        result += c + " ";
+        a = b;
+        b = c;
+      }
+      document.getElementById("out4").innerText = "Fibonacci: " + result;
+    }
+
+    function task5() {
+      let num, result = "";
+      do {
+        num = parseInt(prompt("Enter number (0 to stop):"));
+        if (num !== 0) result += num + " ";
+      } while (num !== 0);
+      document.getElementById("out5").innerText = "Entered: " + result;
+    }
+
+    function task6() {
+      const target = Math.floor(Math.random() * 100) + 1;
+      let guess;
+      do {
+        guess = prompt("Guess number (1-100) or type 'exit':");
+        if (guess === "exit") {
+          alert("Game exited. Number was " + target);
+          break;
+        }
+        guess = parseInt(guess);
+        if (guess < target) alert("Too low!");
+        else if (guess > target) alert("Too high!");
+        else if (guess === target) alert("Correct!");
+      } while (guess !== target);
+    }
+
+    function task7() {
+      let input;
+      do {
+        input = prompt("Enter something (type 'exit' to stop):");
+        if (input !== "exit") alert("You typed: " + input);
+      } while (input !== "exit");
+    }
+
+    function task8() {
+      const arr = [1, 2, 3, 4, 5];
+      let reversed = [], i = arr.length - 1;
+      do {
+        reversed.push(arr[i]);
+        i--;
+      } while (i >= 0);
+      document.getElementById("out8").innerText = "Array: "+arr+" Reversed: " + reversed.join(" ");
+    }
+
+    function task9() {
+      let output = "";
+      for (let i = 1; i <= 10; i++) {
+        for (let j = 1; j <= 10; j++) {
+          output += `${i} x ${j} = ${i * j}<br>`;
+        }
+        output += "<br>";
+      }
+      document.getElementById("out9").innerHTML = output;
+    }
+
+    function task10() {
+      let input;
+      let output = "";
+      while (true) {
+        input = prompt("Enter number to get factorial or 'exit':");
+        if (input === "exit") break;
+        let n = parseInt(input);
+        if (!isNaN(n) && n >= 0) {
+          let fact = 1;
+          for (let i = 2; i <= n; i++) fact *= i;
+          alert(`Factorial of ${n} is ${fact}`);
+        } else {
+          alert("Invalid input");
+        }
+      }
+    }
+
+    function task11() {
+      const num = Math.floor(Math.random() * 10) + 1;
+      let guess;
+      do {
+        guess = parseInt(prompt("Guess number (1-10):"));
+        if (guess < num) alert("Too low!");
+        else if (guess > num) alert("Too high!");
+      } while (guess !== num);
+      alert("Correct! The number was " + num);
+    }
+  </script>
+
+</body>
+</html>

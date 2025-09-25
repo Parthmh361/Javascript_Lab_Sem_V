@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="reg">
+            <input type="text" id="name" placeholder="Enter your full name">
+            <input type="number" id="age" placeholder="Enter your age (13-120)">
+            <input type="email" id="email" placeholder="Enter your email address">
+        <button type="submit">Register</button>
+    </form>
+    <div id="msg"></div>
+    <script>
+        alert("welcome")
+        const form = document.getElementById('reg');
+        const nameInput = document.getElementById('name');
+        const ageInput = document.getElementById('age');
+        const emailInput = document.getElementById('email');
+        const msg = document.getElementById('msg');
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const user = {
+                name: nameInput.value,
+                age: parseInt(ageInput.value, 10),
+                email: emailInput.value
+            };
+            const { name: userName, age: userAge, email: userEmail } = user;
+            if (!userName) {
+                msg.textContent = 'Name field cannot be empty.';
+                return;
+            }
+            if (!userAge || userAge < 13 || userAge > 120) {
+                msg.textContent = 'Age must be a number between 13 and 120.';
+                return;
+            }
+            msg.textContent = `Welcome, ${userName} (Age: ${userAge}). Your email ${userEmail} has been registered successfully!`;
+            nameInput.value = '';
+            ageInput.value = '';
+            emailInput.value = '';
+        });
+    </script>
+</body>
+</html>

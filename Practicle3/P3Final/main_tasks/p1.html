@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>User Form</title>
+</head>
+<body>
+  <form id="userForm">
+    <label>Email:
+      <input type="email" id="email" required>
+    </label>
+    <button type="button" id="checkEmail">Check Valid Email</button><br><br>
+
+    <label>Gender:</label><br>
+    <label><input type="radio" name="gender" value="Male"> Male</label><br>
+    <label><input type="radio" name="gender" value="Female"> Female</label><br><br>
+
+    <label>Hobbies:</label><br>
+    <label><input type="checkbox" name="hobby" value="Reading"> Reading</label><br>
+    <label><input type="checkbox" name="hobby" value="Sports"> Sports</label><br>
+    <label><input type="checkbox" name="hobby" value="Music"> Music</label><br><br>
+
+    <label>Upload Image:
+      <input type="file" id="imageUpload" accept="image/*">
+    </label><br><br>
+    <img id="preview" src="#" alt="Image Preview" width="150" style="display: none;"><br><br>
+
+    <label>Name:
+      <input type="text" id="name" required>
+    </label><br><br>
+
+    <label>Marks:
+      <input type="number" id="marks" required>
+    </label><br><br>
+
+    <button type="submit">Submit</button>
+  </form>
+
+  <script>
+    document.getElementById('checkEmail').addEventListener('click', function () {
+      const emailInput = document.getElementById('email');
+      if (emailInput.checkValidity()) {
+        alert("Valid email!");
+      } else {
+        alert("Please enter a valid email address.");
+      }
+    });
+
+    document.getElementById("imageUpload").addEventListener("change", function () {
+      const file = this.files[0];
+      if (file) {
+        const preview = document.getElementById("preview");
+        preview.src = URL.createObjectURL(file);
+        preview.style.display = "block";
+      }
+    });
+
+    document.getElementById("userForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const gender = document.querySelector("input[name='gender']:checked")?.value;
+      const hobbies = Array.from(document.querySelectorAll("input[name='hobby']:checked"))
+                           .map(h => h.value);
+
+      alert(`Selected Gender: ${gender || 'None'}\nSelected Hobbies: ${hobbies.join(", ") || 'None'}`);
+
+      const name = document.getElementById("name").value;
+      const marks = document.getElementById("marks").value;
+
+      const params = new URLSearchParams({ name, marks });
+      window.location.href = `p1.html?${params.toString()}`;
+    });
+  </script>
+</body>
+</html>

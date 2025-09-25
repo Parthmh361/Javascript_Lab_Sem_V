@@ -1,0 +1,9 @@
+<input type="text" id="name" />
+<button onclick="getName()">Submit</button>
+<p id="text"></p>
+<script>
+function getName() {
+let name = document.getElementById("name").value;
+document.getElementById('text').innerText = `Hello ${name}`
+}
+</script>
