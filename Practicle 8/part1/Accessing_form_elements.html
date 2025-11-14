@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Form Elements Example</title>
+</head>
+<body>
+  <form id="myForm">
+    Username: <input type="text" name="username"><br><br>
+    Password: <input type="password" name="password"><br><br>
+    Email: <input type="email" name="email"><br><br>
+    Age: <input type="number" name="age"><br><br>
+    Gender: 
+    <input type="radio" name="gender" value="male"> Male
+    <input type="radio" name="gender" value="female"> Female <br><br>
+    Accept Terms: <input type="checkbox" name="terms"><br><br>
+    <input type="submit" value="Submit">
+  </form>
+  <button onclick="demo()">Show Properties</button>
+  <script>
+    function demo() {
+      let form = document.getElementById("myForm");
+      alert("First element (by index): " + form.elements[0].name);
+      alert("Username (by name): " + form.elements["username"].value);
+      alert("Email input type: " + form.elements["email"].type);
+      alert("Is Male selected? " + form.elements["gender"][0].checked);
+      form.elements["age"].disabled = true;
+      alert("Age field disabled: " + form.elements["age"].disabled);
+      form.elements["username"].readOnly = true;
+      alert("Username readonly: " + form.elements["username"].readOnly);
+      form.elements["email"].required = true;
+      alert("Email required: " + form.elements["email"].required);
+    }
+  </script>
+</body>
+</html>

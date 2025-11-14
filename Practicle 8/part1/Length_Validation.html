@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<body>
+<form onsubmit="return validate()">
+  Password: <input type="password" id="password"><br>
+  <input type="submit" value="Submit">
+</form>
+<script>
+function validate() {
+  let password = document.getElementById("password").value;
+  if (password.length < 6) {
+    alert("Password must be at least 6 characters");
+    return false;
+  }
+  else{
+     alert("password set succesfully.")
+  }
+}
+</script>
+</body>
+</html>

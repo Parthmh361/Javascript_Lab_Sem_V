@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<body>
+<form onsubmit="return validate()">
+  DOB: <input type="date" id="dob"><br>
+  <input type="submit" value="Submit">
+</form>
+
+<script>
+function validate() {
+  let dob = new Date(document.getElementById("dob").value);
+  let today = new Date();
+  if (dob > today) {
+    alert("Date of Birth cannot be in the future");
+    return false;
+  }
+    else{
+        alert("Date of Birth is valid: " + dob.toDateString());
+        return true;
+    }
+}
+</script>
+</body>
+</html>

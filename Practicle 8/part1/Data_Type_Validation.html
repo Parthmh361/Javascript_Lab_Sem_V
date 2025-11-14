@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<body>
+<form onsubmit="return validate()">
+  Age: <input type="text" id="age"><br>
+  <input type="submit" value="Submit">
+</form>
+<script>
+function validate() {
+  let age = document.getElementById("age").value;
+  if (isNaN(age)) {
+    alert("Age must be a number");
+    return false;
+  }
+  else{
+    alert("Age is "+age)
+  }
+}
+</script>
+</body>
+</html>

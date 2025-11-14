@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<body>
+<form onsubmit="return validate()" enctype="multipart/form-data">
+  Resume: <input type="file" id="resume"><br>
+  <input type="submit" value="Upload">
+</form>
+
+<script>
+function validate() {
+  let file = document.getElementById("resume").files[0];
+  if (!file) {
+    alert("Please upload a file");
+    return false;
+  }
+  if (file.size > 2 * 1024 * 1024) { // 2MB
+    alert("File too large");
+    return false;
+  }
+  if (!file.name.endsWith(".pdf")) {
+    alert("Only PDF allowed");
+    return false;
+  }
+    alert("File is valid: " + file.name);
+  return true;
+}
+</script>
+</body>
+</html>

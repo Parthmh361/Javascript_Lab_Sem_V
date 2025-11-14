@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Product Dashboard</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    .low-stock {
+      background-color: red;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <h3>Product Dashboard</h3>
+
+  <label>Search:</label>
+  <input type="text" id="searchBox">
+
+  <label>Category:</label>
+  <select id="categoryFilter">
+    <option value="all">All</option>
+  </select>
+
+  <h4>Products (Loaded using Fetch)</h4>
+  <table id="fetchTable" border="1">
+    <thead>
+      <tr>
+        <th>ID</th><th>Name</th><th>Category</th><th>Price</th><th>Stock</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <h4>Products (Loaded using jQuery $.getJSON)</h4>
+  <table id="jqueryTable" border="1">
+    <thead>
+      <tr>
+        <th>ID</th><th>Name</th><th>Category</th><th>Price</th><th>Stock</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <script src="script.js"></script>
+</body>
+</html>

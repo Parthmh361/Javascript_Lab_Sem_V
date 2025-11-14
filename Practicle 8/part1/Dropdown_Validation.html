@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<body>
+<form onsubmit="return validate()">
+  City: 
+  <select id="city">
+    <option value="">--Select City--</option>
+    <option value="pune">Pune</option>
+    <option value="mumbai">Mumbai</option>
+  </select>
+  <br>
+  <input type="submit" value="Submit">
+</form>
+
+<script>
+function validate() {
+  if (document.getElementById("city").value === "") {
+    alert("Please select a city");
+    return false;
+  }
+  else{
+    alert("City selected: " + document.getElementById("city").value);
+  }
+}
+</script>
+</body>
+</html>

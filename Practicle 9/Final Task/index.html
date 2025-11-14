@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Personal Dashboard</title>
+  <style>
+    body {
+      font-family: Verdana, sans-serif;
+      transition: all 0.4s ease;
+      text-align: center;
+      padding: 20px;
+    }
+    .dark {
+      background-color: #121212;
+      color: white;
+    }
+    .light {
+      background-color: #ffffff;
+      color: black;
+    }
+    #controls button, select {
+      margin: 6px;
+      padding: 8px 14px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1 id="welcomeText">Welcome!</h1>
+
+  <div id="controls">
+    <input type="text" id="userName" placeholder="Enter your name">
+    <button id="saveUser">Save Name</button>
+    <button id="themeBtn">Switch Theme</button>
+    <select id="fontChooser">
+      <option value="small">Small</option>
+      <option value="medium">Medium</option>
+      <option value="large">Large</option>
+    </select>
+    <button id="resetBtn">Reset Preferences</button>
+  </div>
+
+  <p id="tabCounter"></p>
+
+  <h3>Feedback</h3>
+  <textarea id="feedback" rows="5" cols="40" placeholder="Your feedback..."></textarea>
+
+  <script>
+    let themeNow = localStorage.getItem("theme");
+    if (!themeNow) {
+      themeNow = "light";
+    }
+    document.body.classList.add(themeNow);
+
+    document.getElementById("themeBtn").onclick = function () {
+      let newTheme = document.body.classList.contains("light") ? "dark" : "light";
+      document.body.classList.remove("light", "dark");
+      document.body.classList.add(newTheme);
+      localStorage.setItem("theme", newTheme);
+    };
+    const fSelect = document.getElementById("fontChooser");
+    const fontMap = { small: "12px", medium: "16px", large: "20px" };
+
+    let storedFont = localStorage.getItem("fontSizePref");
+    if (storedFont) {
+      document.body.style.fontSize = fontMap[storedFont];
+      fSelect.value = storedFont;
+    }
+
+    fSelect.onchange = function () {
+      let f = fSelect.value;
+      document.body.style.fontSize = fontMap[f];
+      localStorage.setItem("fontSizePref", f);
+    };
+
+    const savedUser = localStorage.getItem("username");
+    if (savedUser) {
+      document.getElementById("welcomeText").innerText = "Welcome, " + savedUser;
+      document.getElementById("userName").value = savedUser;
+    }
+
+    document.getElementById("saveUser").onclick = function () {
+      let user = document.getElementById("userName").value.trim();
+      if (user) {
+        localStorage.setItem("username", user);
+        document.getElementById("welcomeText").innerText = "Welcome, " + user;
+      }
+    };
+    let count = Number(sessionStorage.getItem("visits")) || 0;
+    count++;
+    sessionStorage.setItem("visits", count);
+    document.getElementById("tabCounter").innerHTML = `This tab has been refreshed ${count} times.`;
+    const fb = document.getElementById("feedback");
+    fb.value = sessionStorage.getItem("feedbackText") || "";
+    fb.addEventListener("keyup", () => {
+      sessionStorage.setItem("feedbackText", fb.value);
+    });
+    document.getElementById("resetBtn").onclick = function () {
+      localStorage.clear();
+      location.reload();
+    };
+  </script>
+</body>
+</html>

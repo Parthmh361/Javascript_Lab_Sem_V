@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<body>
+<form onsubmit="return validate()">
+  Password: <input type="password" id="password"><br>
+  Confirm: <input type="password" id="confirm"><br>
+  <input type="submit" value="Submit">
+</form>
+<script>
+function validate() {
+  let pass = document.getElementById("password").value;
+  let confirm = document.getElementById("confirm").value;
+  if (pass !== confirm) {
+    alert("Passwords do not match");
+    return false;
+  }
+  else if(pass === confirm){
+    alert("Passwords do match");
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<body>
+<form onsubmit="return validate()">
+  Phone: <input type="text" id="phone"><br>
+  <input type="submit" value="Submit">
+</form>
+<script>
+function validate() {
+  let phone = document.getElementById("phone").value;
+  if (!/^[0-9]+$/.test(phone)) {
+    alert("Phone must contain only digits");
+    return false;
+  }
+  else{
+    alert("Correct Phone number:"+phone)
+    return true;
+  }
+}
+</script>
+</body>
+</html>

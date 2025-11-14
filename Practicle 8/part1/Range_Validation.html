@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<body>
+<form onsubmit="return validate()">
+  Age: <input type="number" id="age"><br>
+  <input type="submit" value="Submit">
+</form>
+
+<script>
+function validate() {
+  let age = document.getElementById("age").value;
+  if (age < 18 || age > 60) {
+    alert("Age must be between 18 and 60");
+    return false;
+  }
+  else{
+    alert("Age is between 18 and 60.")
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Gym Admission Form</title>
+</head>
+<body>
+  <h2>Gym Admission Form</h2>
+  <form id="gymForm" onsubmit="return validateForm()">
+    Name: 
+    <input type="text" id="name" onblur="validateName()"><br>
+    <span id="nameError"></span><br>
+    Email: 
+    <input type="text" id="email" onblur="validateEmail()"><br>
+    <span id="emailError"></span><br>
+    Age: 
+    <input type="number" id="age" onchange="validateAge()"><br>
+    <span id="ageError"></span><br>
+    Gender: 
+    <select id="gender" onchange="checkGender()">
+      <option value="">--Select--</option>
+      <option value="male">Male</option>
+      <option value="female">Female</option>
+    </select><br>
+    <span id="genderError"></span><br><br>
+    <input type="submit" value="Submit">
+  </form>
+  <script>
+    function validateName() {
+      let name = document.getElementById("name").value.trim();
+      if (name.length < 3) {
+        document.getElementById("nameError").innerText = "Name must be at least 3 characters";
+        return false;
+      } else {
+        document.getElementById("nameError").innerText = "";
+        return true;
+      }
+    }
+    function validateEmail() {
+      let email = document.getElementById("email").value.trim();
+      let pattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+      if (!email.match(pattern)) {
+        document.getElementById("emailError").innerText = "Invalid email format";
+        return false;
+      } else {
+        document.getElementById("emailError").innerText = "";
+        return true;
+      }
+    }
+    function validateAge() {
+      let age = document.getElementById("age").value;
+      if (age < 16 || age > 60) {
+        document.getElementById("ageError").innerText = "Age must be between 16 and 60";
+        return false;
+      } else {
+        document.getElementById("ageError").innerText = "";
+        return true;
+      }
+    }
+    function checkGender() {
+      let gender = document.getElementById("gender").value;
+      if (gender === "") {
+        document.getElementById("genderError").innerText = "Please select gender";
+        return false;
+      } else {
+        document.getElementById("genderError").innerText = "";
+        return true;
+      }
+    }
+    function validateForm() {
+      let ok = true;
+      if (!validateName()) ok = false;
+      if (!validateEmail()) ok = false;
+      if (!validateAge()) ok = false;
+      if (!checkGender()) ok = false;
+      alert(ok ? "Form submitted successfully!" : "Please correct the errors in the form.");
+      return ok;
+
+    }
+  </script>
+</body>
+</html>
